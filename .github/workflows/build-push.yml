@@ -12,7 +12,7 @@ name: Build and Push Image to DockerHub
 # - Replace env.YOUR_COMPONENT with the component you will build one of {books, reviews, details}
 
 env:
-  COMPONENT: books
+  COMPONENT: details
 
 on:
   push:
