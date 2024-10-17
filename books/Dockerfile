@@ -20,9 +20,11 @@ RUN gradle build --no-daemon
 # Use an official OpenJDK runtime as a base image for running the application
 FROM openjdk:17-jdk-slim
 
+
 # Set the working directory inside the container
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y curl
 # Copy the built application from the previous stage
 COPY --from=builder /app/build/libs/*.jar app.jar
 
@@ -31,3 +33,4 @@ EXPOSE 8080
 
 # Set the entry point for the container to run the Spring Boot application
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
